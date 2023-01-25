@@ -3,9 +3,7 @@ const express = require("express");
 const app = express();
 const router = require("./router.js")
 
-// Mongodb chaqirish
-const db = require("./server").db();
-const mongodb = require("mongodb");
+
 
 // 1 Kirish qismi
 app.use(express.static("public"));
