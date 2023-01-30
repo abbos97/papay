@@ -11,13 +11,17 @@ const restaurantController = require("./controllers/restaurantController")
 
 
 // memberga dahildor routerlar
-router_bssr.get("/signup", restaurantController.getSignupMyRestaurant)
-router_bssr.post("/signup", restaurantController.signupProcess)
-
-router_bssr.get("/login", restaurantController.getLoginMyRestaurant)
-router_bssr.post("/login", restaurantController.loginProcess)
-
+router_bssr
+.get("/signup", restaurantController.getSignupMyRestaurant)
+.post("/signup", restaurantController.signupProcess)
+router_bssr
+.get("/login", restaurantController.getLoginMyRestaurant)
+.post("/login", restaurantController.loginProcess)
 router_bssr.get("/logout", restaurantController.logout)
+router_bssr.get("/check-me", restaurantController.checkSessions)
+
+
+router_bssr.get("/products/menu", restaurantController.getMyRestaurantData)
 
 
 
