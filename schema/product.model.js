@@ -1,5 +1,10 @@
 const mongoose = require("mongoose");
-const { product_collection_enams } = require("../lib/config");
+const {
+  product_collection_enams,
+  product_status_enams,
+  product_size_enams,
+  product_volume_enams,
+} = require("../lib/config");
 const Schema = mongoose.Schema;
 
 const productSchema = new mongoose.Schema(
@@ -87,8 +92,8 @@ const productSchema = new mongoose.Schema(
 );
 
 productSchema.index(
-    { restaurant_mb_id: 1, product_name: 1, product_size: 1, product_volume: 1 },
-    {unique: true});
+  { restaurant_mb_id: 1, product_name: 1, product_size: 1, product_volume: 1 },
+  { unique: true }
+);
 
-    
-module.exports = mongoose.model("Product", productSchema)
+module.exports = mongoose.model("Product", productSchema);
