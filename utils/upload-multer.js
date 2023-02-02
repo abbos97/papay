@@ -34,6 +34,7 @@ module.exports = makeUploader;
 
 
 
+
 // const product_storage = multer.diskStorage({
 //     destination: function(req, file, cb) {
 //         cb(null, './uploads/products')

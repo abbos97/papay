@@ -6,6 +6,7 @@ function calc(num) {
  console.log(calc("1+1"))
  
 
+ 
 // ============= K-task ==================
 
 
