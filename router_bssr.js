@@ -9,7 +9,7 @@ const upload_product = require("./utils/upload-multer")("products");
 
 // memberga dahildor routerlar
 
-router_bssr.get("/", restaurantController.home)
+router_bssr.get("/", restaurantController.home);
 
 router_bssr
   .get("/sign-up", restaurantController.getSignupMyRestaurant)
