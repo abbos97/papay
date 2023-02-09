@@ -46,7 +46,7 @@ html, body {
 .login-container .login-frame {
     position:relative;
     width: 420px;
-    height: 460px;
+    height: auto;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
@@ -100,7 +100,8 @@ html, body {
     margin-top: 15px;
 }
 
-.login-input-container label {
+.login-input-container label,
+.sign-up-frame label {
     position: relative;
     font-style: normal;
     font-weight: 400;
@@ -108,7 +109,8 @@ html, body {
     line-height: 18px;
     
 }
-.login-input-container input {
+.login-input-container input,
+.sign-up-frame input {
     position: relative;
     margin-top: 10px;
     padding-left: 20px;
@@ -133,4 +135,118 @@ html, body {
     line-height: 33px;
     letter-spacing: -0.02em;
     color: #fff;
+}
+
+/* SIGNUP */
+
+.login-frame .sign-input-frame {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.sign-input-frame .sign-up-frame {
+    position: relative;
+    margin-top: 15px;
+    width: 49%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.media-frame {
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex: row;
+    justify-content: space-between;
+}
+
+.media-frame .upload-img-frame {
+    position: relative;
+    width: 275px;
+    height: 93%;
+    display: flex;
+    border-radius: 15px;
+
+}
+
+.media-frame .upload-container{
+    position: relative;
+    width: 75%;
+    height: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    
+}
+
+.media-text {
+    font-family: 'GT Walsheim Pro';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: #140342;
+}
+
+.filebox {
+    margin-top: 25px;
+    display: flex;
+
+}
+.filebox input[type="file"] {
+    position: relative;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border:0;
+}
+
+.filebox label {
+    width: 137px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#6a7a99;
+    border-radius: 0px 8px 8px 0px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'GT Walsheim Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.filebox .upload-name {
+    position: relative;
+    padding: 20px;
+    width: 85%;
+    height: 55px;
+    display: flex;
+    background: #ddd;
+    border: 1px solid #ddd;
+    border-radius: 8px 0px 0px 8px;
+
+}
+
+.thumbnail-desc {
+    margin-top: 25px;
+    font-family: 'GT Walsheim Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: #3532c2
 }

@@ -24,7 +24,6 @@ const memberSchema = new mongoose.Schema({
             values: member_type_enums,
             message: "{VALUE} is not among permitted values"
         }
-
     },
     mb_status: {
         type: String,
