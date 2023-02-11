@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="/css/login.css">
 
 <body>
-    <form class="login-container" action="/resto/sign-up" method="POST" enctype="multipart/form-data">
+    <form onsubmit="return validateSignUpForm()" class="login-container" action="/resto/sign-up" method="POST" enctype="multipart/form-data">
         <div class="login-frame" style="width: 650px; height: 730px">
 
             <div class="login-top">
@@ -20,22 +20,22 @@
             <div class="sign-input-frame">
                 <div class="sign-up-frame">
                     <label>Foydanlanuvchining ismi</label>
-                    <input type="text" name="mb_nick" placeholder="Name" value="" required>
+                    <input type="text" class="mb_nick" name="mb_nick" placeholder="Name" value="" required>
                 </div>
                 <div class="sign-up-frame">
                     <label>Telefon raqam</label>
-                    <input type="text" name="mb_phone" placeholder="+8200000000" value="" required>
+                    <input type="text" class="mb_phone" name="mb_phone" placeholder="+8200000000" value="" required>
                 </div>
             </div>
 
             <div class="sign-input-frame">
                 <div class="sign-up-frame">
                     <label>Password</label>
-                    <input type="password" name="mb_password" placeholder="********" value="" required>
+                    <input type="password" class="mb_password" name="mb_password" placeholder="********" value="" required>
                 </div>
                 <div class="sign-up-frame">
                     <label>Passwordni qayta kiriting</label>
-                    <input type="password" name="mb_confirm_password" placeholder="********" value="" required>
+                    <input type="password" class="mb_confirm_password" name="mb_confirm_password" placeholder="********" value="" required>
                 </div>
             </div>
             <div class="login-input-frame">
@@ -45,8 +45,8 @@
                         <span class="media-text">Taom rasmi</span>
                         <div class="filebox bs3-primary preview-image">
                             <input type="text" class="upload-name" value="Rasm tanlang" disabled="disabled">
-                            <label>Rasm yuklash</label>
-                            <input type="file" id="input_file" class="upload-hidden form-control-file" name="restaurant-img">
+                            <label for="input_file">Rasm yuklash</label>
+                            <input type="file" id="input_file" class="upload-hidden form-control-file restaurant-img" name="restaurant-img">
                         </div>
                         <p class="thumbnail-desc">Oshhona rasmingizni bu yerga yuklang. 
                             <br> Muhum korsatmalar: .jpg, .jpeg, yoki .png
@@ -59,4 +59,58 @@
         </div>
     </form>
 </body>
+
+<script>
+
+    $(function() {
+
+        let fileTarget = $(".filebox .upload-hidden");
+        let filename = '';
+        fileTarget.on("change", function() {
+            if(window.FileReader){
+                const uploading_file = $(this)[0].files[0];
+                const fileType = uploading_file["type"];
+                const validImagesTypes = ['image/png', 'image/jpg', 'image/jpeg'];
+                if(!validImagesTypes.includes(fileType)) {
+                    alert("jpg, jpeg, png farmatda kiritishingiz mumkun!")
+                } else {
+                    if(uploading_file) {
+                        console.log(URL.createObjectURL(uploading_file));
+                        $(".upload-img-frame").attr("src", URL.createObjectURL(uploading_file)).addClass("success")
+                    }
+                    filename = uploading_file.name;
+                }
+            }
+            
+            $(this).siblings('.upload-name').val(filename);
+        });
+
+    });
+
+    function validateSignUpForm(){
+        const mb_nick = $(".mb_nick").val(),
+              mb_phone = $(".mb_phone").val(),
+              mb_password = $(".mb_password").val(),
+              mb_confirm_password = $(".mb_confirm_password").val(),
+              restaurant_img = $(".restaurant-img").get(0).files[0] ?? null;
+
+
+        if(mb_nick == '' || mb_phone == '' || mb_password == '' || mb_confirm_password == '') {
+            alert("Iltimos hamma malumotlarni kiriting")
+            return false;
+        } else if(mb_password !== mb_confirm_password) {
+            alert("Iltimos passwordni togri kiriting")
+            return false;
+        }
+
+
+        if(!restaurant_img) {
+            alert("Istimost rasmni yuklang")
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
 <%- include('includes/footer')%>
