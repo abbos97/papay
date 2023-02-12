@@ -18,6 +18,7 @@ const productSchema = new mongoose.Schema(
         message: "{VALUE} is not among permitted enam values",
       },
     },
+
     
     product_status: {
       type: String,

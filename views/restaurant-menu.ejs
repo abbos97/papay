@@ -44,16 +44,18 @@
                                 <td><%= value.product_left_cnt %></td>
                                 <td>
                                     <select class="spec_select" id="<%= value._id %>">
-                                        <option value="PAUSED" <%= value.product_status === 'PAUSED' ? 'selected' : '' %>PAUSED</option>
-                                        <option value="PROCESS" <%= value.product_status === 'PROCESS' ? 'selected' : '' %>PROCESS</option>
+                                        <option value="PAUSED" <% value.product_status === 'PAUSED' ? 'selected' : '' %> > PAUSED</option>
+                                        <option value="PROCESS" <% value.product_status === 'PROCESS' ? 'selected' : '' %> > PROCESS</option>
                                     </select>
                                 </td>
                             </tbody>
                             <% });%>
                     </table>
                 </div>
-                <form onsubmit="return validateForm()" action="/resto/product/create" method="POST">
-                    
+                <form onsubmit="return validateForm()" action="/resto/product/create" method="POST" class="dish-container" enctype="multipart/form-data">
+                    <div class="long-input" style="align-items: flex-end; margin-bottom: 25px;">
+                        <span class="new-dish-text">Yangi taom</span>
+                    </div>
                 </form>
             </div>
         </div>
