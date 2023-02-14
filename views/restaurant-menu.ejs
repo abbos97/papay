@@ -46,9 +46,9 @@
                             <td><%= value.product_left_cnt %></td>
                             <td>
                                 <select class="spec_select new-product-status" id="<%= value._id %>">
-                                    <option value="PAUSED" <% value.product_status === 'PAUSED' ? 'selected' : '' %>>
+                                    <option value="PAUSED" <%= value.product_status === 'PAUSED' ? 'selected' : '' %>>
                                         PAUSED</option>
-                                    <option value="PROCESS" <% value.product_status === 'PROCESS' ? 'selected' : '' %>>
+                                    <option value="PROCESS" <%= value.product_status === 'PROCESS' ? 'selected' : '' %>>
                                         PROCESS</option>
                                 </select>
                             </td>
@@ -161,8 +161,8 @@
 
                     <div class="long-input" style="align-items: flex-end; margin-bottom: 25px;">
                         <button type="submit" class="btn btn-primary" id="create_product">Chop etish</button>
-
                     </div>
+
                 </form>
             </div>
         </div>
@@ -206,7 +206,7 @@
                     console.log(result);
                     if (result.state == 'success') {
                         alert("success");
-                        // location.reload();
+                        location.reload();
                     } else {
                         alert(result.message);
                     }
@@ -219,7 +219,7 @@
         })
 
         function validateForm() {
-            const restaurant_mb_id = $(".restaurant_id").val(),
+            const restaurant_mb_id = $(".restaurant-id").val(),
                 product_name = $(".product-name").val(),
                 product_price = $(".product-price").val(),
                 product_left_cnt = $(".product-left-cnt").val(),
