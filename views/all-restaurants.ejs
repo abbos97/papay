@@ -1,0 +1,72 @@
+<%- include('includes/header') %>
+
+<link rel="stylesheet" type="text/css" href="/css/menu.css">
+
+
+<body>
+    <div id="main-container" style="height:100%">
+        <div class="group-name">
+            <ul class="nav justify-content-center">
+                <li class="nav-item" style="cursor:pointer">
+                    <a class="nav-link" href="/resto/">Home</a>
+                </li>
+                <li class="nav-item" style="cursor:pointer">
+                    <a class="nav-link" href="/resto/all-restaurant">AllResto</a>
+                </li>
+                <li class="nav-item" style="cursor:pointer">
+                    <a class="nav-link" href="/resto/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="restaurant-menu-frame" >
+            <div class="restaurant-container">
+                <div class="resto-table">
+                    <span class="new-dish-txt">
+                        Barcha oshhonalar ro'yhati
+                    </span>
+
+                    <table class="table table-hover table-sm">
+                        <thead class="thead-light">
+                            <tr class="thead-light">
+                                <th csope="col">T/r</th>
+                                <th csope="col">Oshhona nomi</th>
+                                <th csope="col">Oshhona telefon raqami</th>
+                                <th csope="col">Oshhona top</th>
+                                <th csope="col">Oshhona holati</th>
+                            </tr>
+                        </thead>
+
+                        <tbody style="background: #fff">
+                            <td>1</td>
+                            <td>Chinoz</td>
+                            <td>99970989332</td>
+                            <td style="width: 13%;">
+                                <label class="switch">
+                                    <input type="checkbox" class="mb-top">
+                                    <span class="slider around"></span>
+                                </label>
+                            </td>
+                            <td style="width: 13%;">
+                                <select class="spec-select mb-status">
+                                    <option value="ONPAUSE">ONPAUSE</option>
+                                    <option value="ACTIVE">ACTIVE</option>
+                                    <option value="DELETED">DELETED</option>
+                                </select>
+                                <!-- /# -->
+                            </td>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+
+
+
+<%- include('includes/footer')%>
