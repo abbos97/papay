@@ -96,7 +96,6 @@ restaurantController.loginProcess = async (req, res) => {
 };
 
 restaurantController.logout = (req, res) => {
-  console.log("GET cont.logout");
   try {
     console.log("GET: cont.logout");
     req.session.destroy(function () {
