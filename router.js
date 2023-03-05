@@ -7,8 +7,6 @@ const memberController = require("./controllers/memberController.js")
  **************************************/
 
 
-
-
 // memberga dahildor routerlar
 router.post("/signup", memberController.signup)
 router.post("/login", memberController.login)
