@@ -40,13 +40,13 @@ router_bssr.post(
 );
 
 router_bssr.get(
-   "/all-restaurant",
-   restaurantController.validateAdmin,
-   restaurantController.getAllRestaurants
+  "/all-restaurant",
+  restaurantController.validateAdmin,
+  restaurantController.getAllRestaurants
 );
 router_bssr.post(
   "/all-restaurant/edit",
-  restaurantController.validateAdmin, 
+  restaurantController.validateAdmin,
   restaurantController.updateRestaurantByAdmin
 );
 

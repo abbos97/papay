@@ -2,26 +2,28 @@ const express = require("express");
 const router = express.Router();
 const memberController = require("./controllers/memberController.js");
 
-
 /**************************************
  *             REST API               *
  **************************************/
 
-
 // memberga dahildor routerlar
-router.post("/signup", memberController.signup)
-router.post("/login", memberController.login)
-router.get("/logout", memberController.logout)
-router.get("/check-me", memberController.checkMyAuthentication)
-
+router.post("/signup", memberController.signup);
+router.post("/login", memberController.login);
+router.get("/logout", memberController.logout);
+router.get("/check-me", memberController.checkMyAuthentication);
+router.get(
+  "/member/:id",
+  memberController.retrieveAuthMember,
+  memberController.getChosenMember
+);
 
 //boshqa routerlar
 router.get("/menu", (req, res) => {
-    res.send("Menu sahifasidasiz")
-})
+  res.send("Menu sahifasidasiz");
+});
 
 router.get("/community", (req, res) => {
-    res.send("Jamiyat sahifasidasiz")
-}) 
+  res.send("Jamiyat sahifasidasiz");
+});
 
 module.exports = router;
