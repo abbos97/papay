@@ -6,12 +6,22 @@ let productController = module.exports;
 
 productController.getAllProducts = async (req, res) => {
   try {
-    console.log("GET: cont/getAllProducts");
+    console.log("POST: cont/getAllProducts");
+
+    const product = new Product();
+    const results = await product.getAllProductsData(req.member, req.body)
+
+    await res.json({ state: "success", data: results });
   } catch (err) {
     console.log(`ERROR: cont/getAllProducts ${err.message}`);
     res.json({ state: "fail", message: err.message });
   }
 };
+
+/************************************ 
+ *       BSSR RELATED METHODS       *
+*************************************/ 
+
 productController.addNewProduct = async (req, res) => {
   try {
     console.log("POST: cont/addNewProduct");
@@ -35,14 +45,19 @@ productController.addNewProduct = async (req, res) => {
     console.log(`ERROR: cont/addNewProduct ${err.message}`);
   }
 };
+
 productController.updateChosenProduct = async (req, res) => {
   try {
     console.log("POST: cont/updateChosenProduct");
     const product = new Product(),
-          id = req.params.id,
-          result = await product.updateChosenProductData(id, req.body, req.member._id)
-          
-    await res.json({state: "success", data: result})
+      id = req.params.id,
+      result = await product.updateChosenProductData(
+        id,
+        req.body,
+        req.member._id
+      );
+
+    await res.json({ state: "success", data: result });
   } catch (err) {
     console.log(`ERROR: cont/updateChosenProduct ${err.message}`);
     res.json({ state: "fail", message: err.message });
