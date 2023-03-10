@@ -36,9 +36,6 @@ productController.getChosenProduct = async (req, res) => {
 };
 
 
-
-
-
 /************************************ 
  *       BSSR RELATED METHODS       *
 *************************************/ 
